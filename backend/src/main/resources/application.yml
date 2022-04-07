@@ -1,0 +1,58 @@
+server:
+  adress: localhost
+  port: 8084
+
+spring:
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
+  application:
+    name: "daoumall"
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/daoumall?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: qwer1234
+    platform: MySQL5InnoDBDialect
+
+  security:
+    user:
+      name: user
+      password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    generate-ddl: false
+    show_sql: true
+    hibernate:
+      ddl-auto: update
+
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    root: warn
+    org.springframework.web: debug
+    org.hibernate: error
+    com.daou.project.daoumall.*: info
+
+---
+# 테스트용 ... 작동이 안된다.
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:mysql://localhost:3306/daoumall?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: qwer1234
+    platform: MySQL5InnoDBDialect
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    generate-ddl: false
+    show_sql: true
+    hibernate:
+      ddl-auto: create

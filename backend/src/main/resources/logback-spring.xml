@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <!-- 로그 파일을 적재할 디렉토리 경로를 지정 -->
+    <property name="LOG_FILE_PATH" value="C:\Users\user\Desktop\moon\project\daoumall\logs"/>
+    <!-- 로그 파일을 적재할 파일 이름을 지정 -->
+    <property name="LOG_FILE_NAME" value="daoumall"/>
+
+    <!-- TEXT_CONSOLE 어펜더 정의 -->
+    <!-- 로컬 개발 환경에 적합 -->
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+    <logger name="com.daou.project.daoumall.*" level="INFO"/>
+</configuration>
